@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script>
+        const root = document.getElementById("root");
+        const h3 = React.createElement("h3",{id:"count-box", style:{color:"pink"}},"Count : 0 ");
+        const btn = React.createElement("button",{
+            onClick: () =>{
+                
+            }
+        },"click me!");
+        const div = React.createElement("div",null,[h3,btn]);
+        ReactDOM.render(div,root);
+    </script>
+</html>
+
+<!-- js로만 버튼 누른 횟수 측정 -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Click me</button>
+    <span>Total clicks : 0</span>
+</body>
+<script>
+    var counter = 0;
+    const button = document.querySelector("button");
+    function handleClick(){
+        counter=counter+1;
+        const span = document.querySelector("span");
+        span.innerHTML = `Total clicks : ${counter}`;
+    }
+    button.addEventListener("click",handleClick);
+</script>
+</html> -->
