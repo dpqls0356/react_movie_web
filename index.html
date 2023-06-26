@@ -12,70 +12,23 @@
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
-        var count = 0;
         const root = document.getElementById("root");
-        const Title = ()=> (<h3 id="title">Count : 0</h3>);
-        const Button = ()=>(<button id="btn" onClick={()=>{
-            count = count+1;
-            console.log(count);
-            Title.innerHTML = `Count : ${count}`;
-        }}>click me</button>);
-        const Container = ()=>(<div>
-            <Title/>
-            <Button/>
-            </div>);
-        ReactDOM.render(<Container/>,root);
+        function App(){
+            var [count,setCounter] = React.useState(0);
+            function onClick(){
+                // setCounter(count+1);
+                setCounter((currnet)=>currnet+1);
+            }
+            return(
+                <div>
+                    <h3 id="title">Count : {count} </h3>
+                    <button id="btn" style={{backgroundColor:"pink", fontSize:"30px"}} onClick={onClick}>Click Me</button>
+                </div>
+            )
+        }
+        ReactDOM.render(<App />,root);
         //18.2.0
-        // ReactDOM.createRoot(root).render(<container/>);
+        // const root = ReactDOM.createRoot(document.getElementById("root"));
+        // root.render(<container/>);
     </script>
 </html>
-
-<!-- 오래되고 잘 안쓰는 문법 -->
-<!-- <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <div id="root"></div>
-    </body>
-    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-    <script>
-        const root = document.getElementById("root");
-        const h3 = React.createElement("h3",{id:"count-box", style:{color:"pink"}},"Count : 0 ");
-        const btn = React.createElement("button",{
-            onClick: () =>{
-                
-            }
-        },"click me!");
-        const div = React.createElement("div",null,[h3,btn]);
-        ReactDOM.render(div,root);
-    </script>
-</html> -->
-
-<!-- js로만 버튼 누른 횟수 측정 -->
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <button>Click me</button>
-    <span>Total clicks : 0</span>
-</body>
-<script>
-    var counter = 0;
-    const button = document.querySelector("button");
-    function handleClick(){
-        counter=counter+1;
-        const span = document.querySelector("span");
-        span.innerHTML = `Total clicks : ${counter}`;
-    }
-    button.addEventListener("click",handleClick);
-</script>
-</html> -->
