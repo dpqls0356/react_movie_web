@@ -14,17 +14,35 @@
     <script type="text/babel">
         const root = document.getElementById("root");
         function App(){
-            var [count,setCounter] = React.useState(0);
-            function onClick(){
-                // setCounter(count+1);
-                setCounter((currnet)=>currnet+1);
+            const [amount,setAmount] = React.useState(0);
+            const [flipped,setFlipped] = React.useState(false);
+            function onChange(event){
+                setAmount(event.target.value);
             }
-            return(
+            function reset(){
+                setAmount(0);
+            }
+            function onFlip(){
+                reset();
+                setFlipped((current)=>!current);
+                // if(flipped)setFlipped(false);
+                // else setFlipped(true);
+            }
+            return (
                 <div>
-                    <h3 id="title">Count : {count} </h3>
-                    <button id="btn" style={{backgroundColor:"pink", fontSize:"30px"}} onClick={onClick}>Click Me</button>
+                    <div>
+                        <label htmlFor="min">Minutes</label>
+                        <input id="min" disabled={flipped===true} value={flipped?amount*60:amount} onChange={onChange} type="number" placeholder="Minutes"/>
+                    </div>
+                    <div>
+                        <label htmlFor="hour">Hours</label>
+                        <input id="hour" disabled={flipped===false} value={flipped?amount:amount/60} onChange={onChange} type="number" placeholder="Hours"/>
+                    </div> 
+                    <button onClick={reset}>Reset</button>               
+                    <button onClick={onFlip}>Filp</button>               
                 </div>
-            )
+                
+            );
         }
         ReactDOM.render(<App />,root);
         //18.2.0
