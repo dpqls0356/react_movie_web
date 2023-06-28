@@ -1,100 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <div id="root"></div>
-    </body>
-    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script type="text/babel">
-        const root = document.getElementById("root");
-        function MinutesToHours(){
-            const [amount,setAmount] = React.useState(0);
-            const [flipped,setFlipped] = React.useState(false);
-            function onChange(event){
-                setAmount(event.target.value);
-            }
-            function reset(){
-                setAmount(0);
-            }
-            function onFlip(){
-                reset();
-                setFlipped((current)=>!current);
-                // if(flipped)setFlipped(false);
-                // else setFlipped(true);
-            }
-            return (
-                <div>
-                    <div>
-                        <label htmlFor="min">Minutes</label>
-                        <input id="min" disabled={flipped===true} value={flipped?amount*60:amount} onChange={onChange} type="number" placeholder="Minutes"/>
-                    </div>
-                    <div>
-                        <label htmlFor="hour">Hours</label>
-                        <input id="hour" disabled={flipped===false} value={flipped?amount:amount/60} onChange={onChange} type="number" placeholder="Hours"/>
-                    </div> 
-                    <button onClick={reset}>Reset</button>               
-                    <button onClick={onFlip}>Filp</button>               
-                </div>
-                
-            );
-        }
-        function KmToMile(){
-            const [amount,setAmount] = React.useState(0);
-            const [flipped,setFlipped] = React.useState(false);
-            function onChange(event){
-                setAmount(event.target.value);
-            }
-            function reset(){
-                setAmount(0);
-            }
-            function onFlip(){
-                reset();
-                setFlipped((current)=>!current);
-                // if(flipped)setFlipped(false);
-                // else setFlipped(true);
-            }
-            return (
-                <div>
-                    <div>
-                        <label htmlFor="kms">Kms</label>
-                        <input id="kms" disabled={flipped===true} value={flipped?amount*1.60934:amount} onChange={onChange} type="number" placeholder="Minutes"/>
-                    </div>
-                    <div>
-                        <label htmlFor="miles">Miles</label>
-                        <input id="miles" disabled={flipped===false} value={flipped?amount:amount*0.621371} onChange={onChange} type="number" placeholder="Hours"/>
-                    </div> 
-                    <button onClick={reset}>Reset</button>               
-                    <button onClick={onFlip}>Filp</button>               
-                </div>
-                
-            );
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    const root = document.getElementById("root");
 
+    function Btn({text,changeValue}){
+        return (
+            <button 
+            onClick = {changeValue}
+            style={{
+                backgroundColor:'pink',
+                fontSize:"30px"
+            }}>{text}</button>
+        );
+    }
+    function App(){
+        const [value,setValue] = React.useState("Save Changes");
+        function changeValue(){
+            setValue("Revert Changes");
         }
-        function App(){
-            const [mode,setMode] = React.useState(true);
-            function onClick(){
-                if(mode)setMode(false);
-                else setMode(true);
-            }
-            return(
-                <div>
-                    <h3>Converter {mode?"Minutes or Hours":"Kms or Miles"}</h3>
-                    <div>
-                        {mode?<MinutesToHours/>:<KmToMile/>}
-                        <button onClick={onClick}>Change Mode</button>
-                    </div>   
-                </div>
-            );
-        }
-        ReactDOM.render(<App />,root);
-        //18.2.0
-        // const root = ReactDOM.createRoot(document.getElementById("root"));
-        // root.render(<container/>);
-    </script>
+        return (
+            <div>
+                {/* 여기서 onclick은 단지 props , 이벤트 리스너가 아님 */}
+                <Btn text={value} changeValue={changeValue}/>
+                <Btn text="Confirm"/>
+            </div>
+        );}
+    ReactDOM.render(<App/>,root);
+</script>
+
 </html>
