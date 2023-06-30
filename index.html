@@ -8,21 +8,28 @@
 <body>
     <div id="root"></div>
 </body>
-<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
     const root = document.getElementById("root");
 
-    function Btn({text,changeValue}){
+    function Btn({text,changeValue,fontSize}){
+        console.log({text});
         return (
             <button 
             onClick = {changeValue}
             style={{
                 backgroundColor:'pink',
-                fontSize:"30px"
+                fontSize,
             }}>{text}</button>
         );
+    }
+    const MemorizedBtn = React.memo(Btn);
+    MemorizedBtn.propTypes={
+        text:PropTypes.string,
+        fontSize:PropTypes.number
     }
     function App(){
         const [value,setValue] = React.useState("Save Changes");
@@ -32,8 +39,8 @@
         return (
             <div>
                 {/* 여기서 onclick은 단지 props , 이벤트 리스너가 아님 */}
-                <Btn text={value} changeValue={changeValue}/>
-                <Btn text="Confirm"/>
+                <MemorizedBtn text={value} changeValue={changeValue} fontSize={30}/>
+                <MemorizedBtn text="Confirm" fontSize={50}/>
             </div>
         );}
     ReactDOM.render(<App/>,root);
