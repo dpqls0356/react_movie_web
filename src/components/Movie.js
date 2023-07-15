@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function Movie({id,title,summary,rating,img,release}){
+function Movie({id,title,rating,img}){
     return (
         <div className="movie">
             <div>
