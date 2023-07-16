@@ -12,13 +12,22 @@ function Movie({id,title,rating,img}){
           }, 120);
     }
     useEffect(setSize,[])
+    const [isHidden,setIsHidden] = useState(true);
+    const onMouseEnter = ()=>{
+        setIsHidden(false);
+        setWidth(imgRef.current.offsetWidth)
+        setHeight(imgRef.current.offsetHeight)
+    }
+    const onMouseLeave = () =>{
+        setIsHidden(true);
+    }
     return (
         <div className="movie">
-            <div className="movie-show">
+            <div className="movie-show" onMouseEnter={onMouseEnter}>
                 <img src={img }  ref={imgRef}></img>
                 <span>{title}</span>
             </div>
-            <div className="movie-hidden" style={{width:width,height:height}}>
+            <div onMouseLeave={onMouseLeave} className={`movie-hidden ${isHidden?'hidden':''}`} style={{width:width,height:height}}>
                 <span>{rating}</span>
                 <button><Link to={process.env.PUBLIC_URL +`/movie/${id}`}>More</Link></button>
             </div>
