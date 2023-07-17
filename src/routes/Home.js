@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Movie from "../components/Movie";
 function Home(){
+    const [genre, setGenre] = useState(['ManyDownload','HighRating','Action','Documentary','Thriller'])
     const readHighRatingMovieList = async ()=>{
         const highRating = await(
             await fetch(`https://yts.mx/api/v2/list_movies.json?minimum_rating=5&sort_by=rating`)
@@ -49,6 +50,7 @@ function Home(){
         readDocumentaryMovieList();
         readThrillerMovieList();
         readActionMovieList();
+        console.log(genre);
 
     },[]);
     
@@ -56,7 +58,9 @@ function Home(){
         <div>
             <header className="header">S<span>ee</span>&nbsp;M<span>ovie</span>&nbsp;I<span>nformation</span></header>
             {loading?
-                <div className="loading">Loading...</div>
+                <div className="loading">
+                    <p>&nbsp;</p>
+                    <p>Loading...</p></div>
                 :
                 <div className="MovieList ">
                     <div className="ManyDownload">
@@ -68,6 +72,7 @@ function Home(){
                             title={movie.title}
                             rating={movie.rating}
                             img={movie.medium_cover_image}
+                            category={genre[0]}
                             />)}
                         </div>
                     </div>
@@ -80,6 +85,7 @@ function Home(){
                             title={movie.title}
                             rating={movie.rating}
                             img={movie.medium_cover_image}
+                            category={genre[1]}
                             />)}
                         </div>
                     </div>
@@ -92,6 +98,7 @@ function Home(){
                             title={movie.title}
                             rating={movie.rating}
                             img={movie.medium_cover_image}
+                            category={genre[2]}
                             />)}
                         </div>
                     </div>
@@ -104,6 +111,7 @@ function Home(){
                             title={movie.title}
                             rating={movie.rating}
                             img={movie.medium_cover_image}
+                            category={genre[3]}
                             />)}
                         </div>
                     </div>
@@ -116,6 +124,7 @@ function Home(){
                             title={movie.title}
                             rating={movie.rating}
                             img={movie.medium_cover_image}
+                            category={genre[4]}
                             />)}
                         </div>
                     </div>

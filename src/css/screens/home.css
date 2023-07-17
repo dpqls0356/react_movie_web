@@ -2,7 +2,7 @@
     width: 100%;
     height: max-content;
     padding: 30px 60px;
-    padding-top: 90px;
+    padding-top: 120px;
 }
 .MovieList-header{
     font-size: 25px;
@@ -11,6 +11,8 @@
 }
 .MovieList-component{
     width: 100%;
+    height: fit-content;
+    overflow-y: hidden;
     display: flex;
     overflow-x: scroll;
     margin-bottom: 100px;
