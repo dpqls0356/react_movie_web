@@ -6,31 +6,32 @@ function Movie({id,title,rating,img,category}){
     const [height,setHeight] = useState(0);
     const [width,setWidth] = useState(0);
     const setSize = () => {
-        setTimeout(()=>{
-            setWidth(imgRef.current.offsetWidth)
-            setHeight(imgRef.current.offsetHeight)
-          }, 120);
+            setWidth(imgRef.current?.offsetWidth)
+            setHeight(imgRef.current?.offsetHeight)
     }
     useEffect(setSize,[])
-    const [isHidden,setIsHidden] = useState(true);
+      const [state, setState] = useState('firstHidden');
     const onMouseEnter = ()=>{
-        setIsHidden(false);
-        setWidth(imgRef.current.offsetWidth)
-        setHeight(imgRef.current.offsetHeight)
+        setState("show-more");
+        setWidth(imgRef.current?.offsetWidth)
+        setHeight(imgRef.current?.offsetHeight)
     }
     const onMouseLeave = () =>{
-        setIsHidden(true);
+        setState("hidden")
+        setWidth(imgRef.current?.offsetWidth)
+        setHeight(imgRef.current?.offsetHeight)
     }
     return (
         <div className="movie">
-            <div className="movie-show" onMouseEnter={onMouseEnter}>
-                <img src={img }  ref={imgRef}></img>
+            <div className="movie-show" >
+                <img src={img }  onMouseEnter={onMouseEnter} ref={imgRef}></img>
                 <span>{title}</span>
             </div>
-            <div onMouseLeave={onMouseLeave} className={`movie-hidden ${isHidden?'hidden':''}`} style={{width:width,height:height}}>
-                <span>{rating}</span>
-                <button><Link to={process.env.PUBLIC_URL +`/movie/${category}/${id}`}>More</Link></button>
-            </div>
+                <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}  className={`hide-part ${state}`} style={{width:width,height:height}}>
+                    <span>{rating}</span>
+                    <button><Link to={process.env.PUBLIC_URL +`/movie/${category}/${id}`}>More</Link></button>
+                </div>
+        
         </div>
     );
 }

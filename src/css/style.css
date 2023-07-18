@@ -11,7 +11,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: rgba(0, 0, 0, 0.823);
+    background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     width: 100vw;
 }
