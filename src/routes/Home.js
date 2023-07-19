@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Movie from "../components/Movie";
 import {faArrowLeft,faArrowRight} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 function Home(){
     const [genre, setGenre] = useState(['ManyDownload','HighRating','Action','Documentary','Thriller'])
     const readHighRatingMovieList = async ()=>{
@@ -95,31 +96,31 @@ function Home(){
     const slideRight = (wherePart)=>{
         console.log(MDTrans);
           if(wherePart==='MDTrans'){
-            if (MDTrans<=-4930) {
+            if (MDTrans<=-5510) {
                 return;
               }
             setMDTrans(current => current - 290);
         }
         else if(wherePart==='HRTrans'){
-            if (HRTrans<=-4930) {
+            if (HRTrans<=-5510) {
                 return;
               }
             setHRTrans(current => current - 290);
         }
         else if(wherePart==='ACTTrans'){
-            if (ACTTrans<=-4930) {
+            if (ACTTrans<=-5510) {
                 return;
               }
             setACTTrans(current => current - 290);
         }
         else if(wherePart==='DOCUTrans'){
-            if (DOCUTrans<=-4930) {
+            if (DOCUTrans<=-5510) {
                 return;
               }
             setDOCUTrans(current => current - 290);
         }
         else{
-            if (THRTrans<=-4930) {
+            if (THRTrans<=-5510) {
                 return;
               }
             setTHRTrans(current => current - 290); 
@@ -127,7 +128,9 @@ function Home(){
     }
     return(
         <div>
-            <header className="header">S<span>ee</span>&nbsp;M<span>ovie</span>&nbsp;I<span>nformation</span></header>
+            <header className="header">S<span>ee</span>&nbsp;M<span>ovie</span>&nbsp;I<span>nformation</span>
+                <Link to={process.env.PUBLIC_URL+`/`}></Link>            
+            </header>                       
             {loading?
                 <div className="loading">
                     <p>&nbsp;</p>

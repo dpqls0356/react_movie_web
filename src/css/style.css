@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap');
 @import "./reset.css";
 
 /* component */
@@ -11,6 +12,7 @@
     box-sizing: border-box;
 }
 body{
+    font-family: 'Nanum Myeongjo', serif;
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     width: 100vw;

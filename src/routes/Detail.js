@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import MovieDetail from "../components/MovieDetail";
 function Detail(){
     const {category,id} = useParams();
@@ -68,11 +68,13 @@ function Detail(){
 
     return (
         <div>
-            <header className="header">S<span>ee</span>&nbsp;M<span>ovie</span>&nbsp;I<span>nformation</span></header>            {loading?
-                <div className="loading">
+            <header className="header">S<span>ee</span>&nbsp;M<span>ovie</span>&nbsp;I<span>nformation</span>
+                <Link to={process.env.PUBLIC_URL+`/`}></Link>            
+            </header>            
+            {loading?
+                    <div className="loading">
                     <p>&nbsp;</p>
-                    <p>Loading...</p>
-                </div>
+                    <p>Loading...</p></div>
                 :<MovieDetail                    
                 key={movie.id}
                 id={movie.id}
