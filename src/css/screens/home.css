@@ -1,7 +1,7 @@
 .MovieList{
     width: 100%;
     height: max-content;
-    padding: 30px 60px;
+    padding: 30px 140px;
     padding-top: 120px;
 }
 .MovieList-header{
@@ -13,7 +13,6 @@
     width: 100%;
     height: fit-content;
     overflow-y: hidden;
-    display: flex;
     overflow-x: scroll;
     margin-bottom: 100px;
 }
@@ -21,6 +20,9 @@
 .MovieList-component::-webkit-scrollbar-thumb, 
 .MovieList-component::-webkit-scrollbar-track{
     display: none;
+}
+.MovieList-slide{
+    display: flex;
 }
 
 .movie{
