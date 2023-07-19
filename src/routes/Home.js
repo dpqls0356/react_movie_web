@@ -134,9 +134,9 @@ function Home(){
                     <p>Loading...</p></div>
                 :
                 <div className="MovieList">                   
-                    <div className="ManyDownload">
-                        <button onClick={()=>slideLeft('MDTrans')}>
-                                    <FontAwesomeIcon icon={faArrowLeft}/>
+                    <div className="ManyDownload slide-btn-parents">
+                        <button className="slide-button-l" onClick={()=>slideLeft('MDTrans')}>
+                                    {/* <FontAwesomeIcon icon={faArrowLeft}/> */}
                         </button>
                         <h1 className="MovieList-header">Many Download</h1>
                         <div className="MovieList-component">
@@ -153,13 +153,13 @@ function Home(){
                                 />)}
                             </div>
                         </div>
-                        <button onClick={()=>slideRight('MDTrans')}>
-                                <FontAwesomeIcon icon={faArrowRight}/>
+                        <button className="slide-button-r" onClick={()=>slideRight('MDTrans')}>
+                                {/* <FontAwesomeIcon icon={faArrowRight}/> */}
                             </button>
                     </div>
-                    <div className="HighRating">
-                        <button onClick={()=>slideLeft('HRTrans')}>
-                            <FontAwesomeIcon icon={faArrowLeft}/>
+                    <div className="HighRating  slide-btn-parents">
+                        <button className="slide-button-l" onClick={()=>slideLeft('HRTrans')}>
+                            {/* <FontAwesomeIcon icon={faArrowLeft}/> */}
                         </button>
                             <h1 className="MovieList-header">High Rating</h1>
                             <div className="MovieList-component">
@@ -176,13 +176,13 @@ function Home(){
                                 />)}
                                 </div>
                             </div>
-                        <button onClick={()=>slideRight('HRTrans')}>
-                            <FontAwesomeIcon icon={faArrowRight}/>
+                        <button className="slide-button-r" onClick={()=>slideRight('HRTrans')}>
+                            {/* <FontAwesomeIcon icon={faArrowRight}/> */}
                         </button>
                     </div>
-                    <div className="Action"> 
-                        <button onClick={()=>slideLeft('ACTTrans')}>
-                            <FontAwesomeIcon icon={faArrowLeft}/>
+                    <div className="Action slide-btn-parents"> 
+                        <button className="slide-button-l" onClick={()=>slideLeft('ACTTrans')}>
+                            {/* <FontAwesomeIcon icon={faArrowLeft}/> */}
                         </button>
                             <h1 className="MovieList-header">Action</h1>
                             <div className="MovieList-component">
@@ -199,13 +199,13 @@ function Home(){
                                 />)}
                                 </div>
                             </div>
-                        <button onClick={()=>slideRight('ACTTrans')}>
-                            <FontAwesomeIcon icon={faArrowRight}/>
+                        <button className="slide-button-r" onClick={()=>slideRight('ACTTrans')}>
+                            {/* <FontAwesomeIcon icon={faArrowRight}/> */}
                         </button>
                     </div>
-                    <div className="Documentary"> 
-                        <button onClick={()=>slideLeft('DOCUTrans')}>
-                            <FontAwesomeIcon icon={faArrowLeft}/>
+                    <div className="Documentary slide-btn-parents"> 
+                        <button className="slide-button-l" onClick={()=>slideLeft('DOCUTrans')}>
+                            {/* <FontAwesomeIcon icon={faArrowLeft}/> */}
                         </button>
                             <h1 className="MovieList-header">Documentary</h1>
                             <div className="MovieList-component">
@@ -222,13 +222,13 @@ function Home(){
                                 />)}
                                 </div>
                             </div>
-                        <button onClick={()=>slideRight('DOCUTrans')}>
-                            <FontAwesomeIcon icon={faArrowRight}/>
+                        <button className="slide-button-r" onClick={()=>slideRight('DOCUTrans')}>
+                            {/* <FontAwesomeIcon icon={faArrowRight}/> */}
                         </button>
                     </div>
-                    <div className="Thriller">
-                        <button onClick={()=>slideLeft('THRTrans')}>
-                            <FontAwesomeIcon icon={faArrowLeft}/>
+                    <div className="Thriller slide-btn-parents">
+                        <button className="slide-button-l" onClick={()=>slideLeft('THRTrans')}>
+                            {/* <FontAwesomeIcon icon={faArrowLeft}/> */}
                         </button>
                             <h1 className="MovieList-header">Thriller</h1>
                             <div className="MovieList-component">
@@ -245,8 +245,8 @@ function Home(){
                                 />)}
                                 </div>
                             </div>
-                        <button onClick={()=>slideRight('THRTrans')}>
-                            <FontAwesomeIcon icon={faArrowRight}/>
+                        <button  className="slide-button-r" onClick={()=>slideRight('THRTrans')}>
+                            {/* <FontAwesomeIcon icon={faArrowRight}/> */}
                         </button>
                     </div>
                 </div>

@@ -24,6 +24,32 @@
 .MovieList-slide{
     display: flex;
 }
+.slide-btn-parents{    
+    position: relative;
+}
+.slide-button-l,.slide-button-r{
+    all: unset;
+    font-size: 30px;
+    position: absolute;
+    top: 43%;
+    /* width: 50px;
+    height: 50px; */
+
+}
+.slide-button-l{
+    left: -90px;
+    border-bottom: 20px solid transparent;
+    border-top: 20px solid transparent;
+    border-left: 30px solid transparent;
+    border-right: 30px solid rgba(87, 83, 83, 0.748);;
+}
+.slide-button-r{
+    right: -90px;
+    border-bottom: 20px solid transparent;
+    border-top: 20px solid transparent;
+    border-left: 30px solid rgba(87, 83, 83, 0.748);
+    border-right: 30px solid transparent;
+}
 
 .movie{
     position: relative;
